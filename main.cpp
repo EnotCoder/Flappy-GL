@@ -162,6 +162,22 @@ int main()
         {
             glfwSetWindowShouldClose(window, true);
         }
+
+        if (glfwGetKey(window,GLFW_KEY_R) == GLFW_PRESS)
+        {
+            tubesDown[0].position = glm::vec2(2.0,-(static_cast <float>(getRandomDouble(1.0,1.35))));
+            tubesDown[1].position = glm::vec2(3.5,-(static_cast <float>(getRandomDouble(1.0,1.35))));
+            tubesDown[2].position = glm::vec2(5.0,-(static_cast <float>(getRandomDouble(1.0,1.35))));
+
+            tubesUp[0].position = glm::vec2(2.0,(static_cast <float>(getRandomDouble(1.0,1.35))));
+            tubesUp[1].position = glm::vec2(3.5,(static_cast <float>(getRandomDouble(1.0,1.35))));
+            tubesUp[2].position = glm::vec2(5.0,(static_cast <float>(getRandomDouble(1.0,1.35))));
+
+            bird.active = true;
+            store = 0;
+            bird.velocityY = 0.0f;
+            bird.PlayerPos = glm::vec2(-0.7,0.5);
+        }
         
 
         //Draw Object
@@ -200,6 +216,12 @@ int main()
         glm::mat4 projection = glm::ortho(0.0f, 1200.0f, 800.0f, 0.0f);
         glUniformMatrix4fv(glGetUniformLocation(textShader, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         RenderText(textShader, "Store: " + std::to_string(store), 50.0f, 700.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+
+        if (!bird.active)
+        {
+            RenderText(textShader,"Presed R-restart", 750.0f, 700.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+        }
+
         glUseProgram(shaderProgram);
 
 

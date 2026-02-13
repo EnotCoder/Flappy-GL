@@ -20,7 +20,6 @@ private:
     unsigned int Playertexture = CreateTexture("tex/Player/AllBird1.png");
 
     //position
-    glm::vec2 PlayerPos = glm::vec2(-0.7,0.5);
     float speed = 0.015;
     
     //sprite
@@ -34,12 +33,13 @@ private:
     float lastVelocityY = 0.0f;
 
     //fall
-    float gravity = -0.001f;
-    float velocityY = 0.0f;
     int prevSpaceState = GLFW_RELEASE;
     anim birdSprite;
 
 public:
+    glm::vec2 PlayerPos = glm::vec2(-0.7,0.5);
+    float gravity = -0.001f;
+    float velocityY = 0.0f;
     bool active = true;
     void move(GLFWwindow* window,float deltaTime);
 };
