@@ -1,3 +1,3 @@
 # Flappy GL
 
-<img src="./scr01.png">
+<p align="center"><img src="./scr01.png" width="200"></p>
