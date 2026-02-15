@@ -14,6 +14,7 @@ add_executable(${PROJECT_NAME}
     animSprite/anim.cpp
     spriteClass/sprite.cpp
     text/text.cpp
+    control/control.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE 
@@ -40,4 +41,3 @@ target_link_libraries(${PROJECT_NAME} glm)
 
 # Подключение FreeType
 target_link_libraries(${PROJECT_NAME} ${FREETYPE_LIBRARIES})
-

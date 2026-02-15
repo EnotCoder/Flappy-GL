@@ -409,4 +409,4 @@ CMakeFiles/Enot.dir/main.cpp.o: /home/enot/glgame/main.cpp \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/stl_map.h \
  /usr/include/c++/13/bits/stl_multimap.h \
- /usr/include/c++/13/bits/erase_if.h
+ /usr/include/c++/13/bits/erase_if.h /home/enot/glgame/control/control.h

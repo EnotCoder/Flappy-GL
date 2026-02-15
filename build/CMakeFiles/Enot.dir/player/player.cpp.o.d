@@ -388,4 +388,5 @@ CMakeFiles/Enot.dir/player/player.cpp.o: \
  /home/enot/glgame/external/glm/glm/../glm/gtc/../gtc/../ext/vector_uint1_sized.hpp \
  /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
  /home/enot/glgame/external/glm/glm/../glm/gtc/type_ptr.inl \
- /home/enot/glgame/stb_image.h /usr/include/c++/13/stdlib.h
+ /home/enot/glgame/stb_image.h /usr/include/c++/13/stdlib.h \
+ /home/enot/glgame/control/control.h

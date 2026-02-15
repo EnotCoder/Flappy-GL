@@ -6,21 +6,27 @@
 #include <iostream>
 #include <vector>
 #include "stb_image.h"
+#include "control/control.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+void player::RestartPlayer()
+{
+    active = true;
+    PlayerPos = glm::vec2(-0.7,0.5);
+    store = 0;
+}
+
 
 void player::move(GLFWwindow* window,float deltaTime)
 {
-    int currStateSpace = glfwGetKey(window, GLFW_KEY_SPACE);
+    static int SpaceKeyState = GLFW_RELEASE;
 
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && prevSpaceState == GLFW_RELEASE) {
+    if (IsKeyJustPressed(window, GLFW_KEY_SPACE, SpaceKeyState)) {
         velocityY = jumpForce;
     }
-
-    prevSpaceState = currStateSpace;
 
     if (velocityY > 0.02f) {
         targetRotation += 3.0;  // Наклон вверх при прыжке

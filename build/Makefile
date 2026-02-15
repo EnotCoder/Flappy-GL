@@ -192,6 +192,30 @@ animSprite/anim.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Enot.dir/build.make CMakeFiles/Enot.dir/animSprite/anim.cpp.s
 .PHONY : animSprite/anim.cpp.s
 
+control/control.o: control/control.cpp.o
+.PHONY : control/control.o
+
+# target to build an object file
+control/control.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Enot.dir/build.make CMakeFiles/Enot.dir/control/control.cpp.o
+.PHONY : control/control.cpp.o
+
+control/control.i: control/control.cpp.i
+.PHONY : control/control.i
+
+# target to preprocess a source file
+control/control.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Enot.dir/build.make CMakeFiles/Enot.dir/control/control.cpp.i
+.PHONY : control/control.cpp.i
+
+control/control.s: control/control.cpp.s
+.PHONY : control/control.s
+
+# target to generate assembly for a file
+control/control.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Enot.dir/build.make CMakeFiles/Enot.dir/control/control.cpp.s
+.PHONY : control/control.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -351,6 +375,9 @@ help:
 	@echo "... animSprite/anim.o"
 	@echo "... animSprite/anim.i"
 	@echo "... animSprite/anim.s"
+	@echo "... control/control.o"
+	@echo "... control/control.i"
+	@echo "... control/control.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

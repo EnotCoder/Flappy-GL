@@ -1,0 +1,7 @@
+SetupTextBuffers();
+    unsigned int textShader = CreateShader("./shaders/textVert.glsl", "./shaders/textFrag.glsl");
+    InitText(20);
+
+glUseProgram(textShader);
+        RenderText(textShader, "Store: " + std::to_string(store), 50.0f, 700.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+        if (!bird.active)RenderText(textShader,"Presed R-restart", 750.0f, 700.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));

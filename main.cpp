@@ -17,6 +17,8 @@
 #include <random>
 #include "spriteClass/sprite.h"
 #include "text/text.h"
+#include "control/control.h"
+
 
 float vert[] = {
     -0.5f,  0.5f,  0.0f,  0.0f, 0.0f,
@@ -36,6 +38,25 @@ double getRandomDouble(double min, double max) {
     static std::mt19937 gen{std::random_device{}()};
     std::uniform_real_distribution<double> dis(min, max);
     return dis(gen);
+}
+
+std::vector <std::string> getFileSource()
+{   
+    std::string line;
+    std::ifstream file("game.txt");
+    std::vector <std::string> ret;
+    if (file.is_open())
+    {
+        while (std::getline(file,line))
+        {
+            ret.push_back(line);
+        }
+        file.close();
+    }else{
+        std::cerr << "не удалось открыть файл";
+    }
+
+    return ret;
 }
 
 //MAIN
@@ -126,8 +147,9 @@ int main()
     Sprite tube6 = tube;tube6.position = glm::vec2(5.0,(static_cast <float>(getRandomDouble(1.0,1.35))));
     Sprite tubesUp[] = {tube4, tube5, tube6};
 
-    //global var
-    int store = 0;
+
+    std::vector <std::string> f = getFileSource();
+    std::cout << f[0] << std::endl;
 
     //while
     float lastTime = glfwGetTime();
@@ -139,13 +161,17 @@ int main()
         lastTime = now;
 
         //exit
-        if (glfwGetKey(window,GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        static int EscKeyState = GLFW_RELEASE;
+        
+        if (IsKeyJustPressed(window, GLFW_KEY_ESCAPE, EscKeyState))
         {
             glfwSetWindowShouldClose(window, true);
         }
 
         //restart
-        if (glfwGetKey(window,GLFW_KEY_R) == GLFW_PRESS)
+        static int RKeyState = GLFW_RELEASE;
+
+        if (IsKeyJustPressed(window, GLFW_KEY_R, RKeyState))
         {
             tubesDown[0].position = glm::vec2(2.0,-(static_cast <float>(getRandomDouble(1.0,1.35))));
             tubesDown[1].position = glm::vec2(3.5,-(static_cast <float>(getRandomDouble(1.0,1.35))));
@@ -155,10 +181,7 @@ int main()
             tubesUp[1].position = glm::vec2(3.5,(static_cast <float>(getRandomDouble(1.0,1.35))));
             tubesUp[2].position = glm::vec2(5.0,(static_cast <float>(getRandomDouble(1.0,1.35))));
 
-            bird.active = true;
-            store = 0;
-            bird.velocityY = 0.0f;
-            bird.PlayerPos = glm::vec2(-0.7,0.5);
+            bird.RestartPlayer();
         }
         
 
@@ -179,14 +202,16 @@ int main()
         {   
             float &tubePosX = tubesDown[i].position.x;
             float &tubePosY = tubesDown[i].position.y;
-            if (tubePosX > -2.0f) {if (bird.active) tubePosX -= 0.02f;} else {tubePosX = 2.5f;tubePosY = -getRandomDouble(1.0,1.35);}
+            if (tubePosX > -2.0f) {if (bird.active) tubePosX -= 0.02f;} 
+            else {tubePosX = 2.5f;tubePosY = -getRandomDouble(1.0,1.35);}
             tubesDown[i].draw();
         }
         for (int i =0;i<3;i++)
         {   
             float &tubePosX = tubesUp[i].position.x;
             float &tubePosY = tubesUp[i].position.y;
-            if (tubePosX > -2.0f) {if (bird.active) tubePosX -= 0.02f;} else {tubePosX = 2.5f;tubePosY = getRandomDouble(1.0,1.35);store+=1;}
+            if (tubePosX > -2.0f) {if (bird.active) tubePosX -= 0.02f;} 
+            else {tubePosX = 2.5f;tubePosY = getRandomDouble(1.0,1.35);bird.store+=1;}
             tubesUp[i].draw();
         }
 
@@ -197,7 +222,7 @@ int main()
         //glUniformMatrix4fv(glGetUniformLocation(textShader, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         //text
         glUseProgram(textShader);
-        RenderText(textShader, "Store: " + std::to_string(store), 50.0f, 700.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+        RenderText(textShader, "Store: " + std::to_string(bird.store), 50.0f, 700.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
         if (!bird.active)RenderText(textShader,"Presed R-restart", 750.0f, 700.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 
 

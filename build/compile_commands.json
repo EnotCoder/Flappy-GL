@@ -42,6 +42,12 @@
   "output": "CMakeFiles/Enot.dir/text/text.cpp.o"
 },
 {
+  "directory": "/home/enot/glgame/build",
+  "command": "/usr/bin/c++  -I/home/enot/glgame -I/usr/include/freetype2 -I/home/enot/glgame/external/glfw3/include -I/home/enot/glgame/external/glad/include -I/home/enot/glgame/external/glm/glm/..  -o CMakeFiles/Enot.dir/control/control.cpp.o -c /home/enot/glgame/control/control.cpp",
+  "file": "/home/enot/glgame/control/control.cpp",
+  "output": "CMakeFiles/Enot.dir/control/control.cpp.o"
+},
+{
   "directory": "/home/enot/glgame/build/external/glfw3/src",
   "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/enot/glgame/external/glfw3/include -I/home/enot/glgame/external/glfw3/src -I/home/enot/glgame/build/external/glfw3/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/context.c.o -c /home/enot/glgame/external/glfw3/src/context.c",
   "file": "/home/enot/glgame/external/glfw3/src/context.c",

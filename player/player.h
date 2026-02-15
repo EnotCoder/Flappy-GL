@@ -16,32 +16,29 @@
 class player
 {
 private:
-    //texture
-    unsigned int Playertexture = CreateTexture("tex/Player/AllBird1.png");
-
-    //position
-    float speed = 0.015;
-    
     //sprite
     bool flip = false;
+    const unsigned int Playertexture{CreateTexture("tex/Player/AllBird1.png")};
+    glm::vec2 PlayerPos = glm::vec2(-0.7,0.5);
+    anim birdSprite;
 
     //rotate
     float rotateBird = 0.0;
-    float jumpForce = 0.025f;
+    const float jumpForce = 0.025f;
     float targetRotation = 0.0f;
-    float rotationSpeed = 90.0f;
+    const float rotationSpeed = 90.0f;
     float lastVelocityY = 0.0f;
 
     //fall
     int prevSpaceState = GLFW_RELEASE;
-    anim birdSprite;
+    const float gravity = -0.001f;
+    float velocityY = 0.0f;
 
 public:
-    glm::vec2 PlayerPos = glm::vec2(-0.7,0.5);
-    float gravity = -0.001f;
-    float velocityY = 0.0f;
+    int store = 0;
     bool active = true;
     void move(GLFWwindow* window,float deltaTime);
+    void RestartPlayer();
 };
 
 #endif

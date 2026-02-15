@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Enot.dir/animSprite/anim.cpp.o"
   "CMakeFiles/Enot.dir/animSprite/anim.cpp.o.d"
+  "CMakeFiles/Enot.dir/control/control.cpp.o"
+  "CMakeFiles/Enot.dir/control/control.cpp.o.d"
   "CMakeFiles/Enot.dir/main.cpp.o"
   "CMakeFiles/Enot.dir/main.cpp.o.d"
   "CMakeFiles/Enot.dir/player/player.cpp.o"

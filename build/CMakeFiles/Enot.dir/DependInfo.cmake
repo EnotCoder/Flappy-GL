@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/enot/glgame/animSprite/anim.cpp" "CMakeFiles/Enot.dir/animSprite/anim.cpp.o" "gcc" "CMakeFiles/Enot.dir/animSprite/anim.cpp.o.d"
+  "/home/enot/glgame/control/control.cpp" "CMakeFiles/Enot.dir/control/control.cpp.o" "gcc" "CMakeFiles/Enot.dir/control/control.cpp.o.d"
   "/home/enot/glgame/main.cpp" "CMakeFiles/Enot.dir/main.cpp.o" "gcc" "CMakeFiles/Enot.dir/main.cpp.o.d"
   "/home/enot/glgame/player/player.cpp" "CMakeFiles/Enot.dir/player/player.cpp.o" "gcc" "CMakeFiles/Enot.dir/player/player.cpp.o.d"
   "/home/enot/glgame/rect/rect.cpp" "CMakeFiles/Enot.dir/rect/rect.cpp.o" "gcc" "CMakeFiles/Enot.dir/rect/rect.cpp.o.d"
